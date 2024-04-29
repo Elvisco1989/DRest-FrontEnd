@@ -1,6 +1,6 @@
  
  const baseUrl = "https://localhost:7299/api/Musics"
- Vue.CreateApp({
+ Vue.createApp({
     data(){
         return{
             Id: null,
