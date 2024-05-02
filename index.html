@@ -8,6 +8,7 @@
     <title>DRMusic</title>
  </head>
  <body>
+    <h1>DR Music</h1>
     <div id="app">
         <h1>Get All Music</h1>
         <button id="getAllButton" v-on:click="getMusics" class="btn btn-primary">Get all Music </button>
@@ -19,6 +20,21 @@
 
         </ul>
         <div v-else >No Music</div>
+
+        <h2>Get by Id(Get)</h2>
+        <input v-model="idToGetBy" placeholder="id" type="number"/>
+        <button v-on:click="getbyId(idToGetBy)" class="btn btn-primary">Get by Id</button>
+        <div v-if="Singlemusic">
+            {{Singlemusic.Id}}  {{Singlemusic.title}}  {{Singlemusic.artist}}  {{Singlemusic.publicationYear}}  {{Singlemusic.duration}}
+
+        </div>
+        <div v-else> No such Music
+
+        </div>
+        <h2>Delete (Delete)</h2>
+        <input v-model.number="deleteId" placeholder="id" type="number"/>
+        <button v-on:click="deleteMusic(deleteId)" class="btn btn-warning">Delete</button>
+        {{deletemessage}}
 
     </div>
     <script src="index.js"></script>
