@@ -13,7 +13,7 @@
         <button id="getAllButton" v-on:click="getMusics" class="btn btn-primary">Get all Music </button>
         <ul id="MusicList" v-if="Musics.length">
             <li v-for="music in Musics">
-                {{music.Id}}: {{music.Title}}: {{music.Artist}}  {{music.PublicationYear}}: {{music.Duration}}
+                {{music.id}}: {{music.title}}: {{music.artist}}  {{music.publicationYear}}: {{music.duration}}
 
             </li>
 
