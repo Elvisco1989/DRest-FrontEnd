@@ -11,17 +11,20 @@
             Duration: null,
 
             Music : {
-            Id: null,
-            Title:"",
-            Artist: "",
-            PublicationYear:null,
-            Duration: null,
+            id: 0,
+            title:"",
+            artist: "",
+            publicationYear:0,
+            duration: 0,
 
             },
+            updateData: { id: 0, title: "", artist: "", publicationYear: 0 , duration:0},
 
             Musics : [],
             Singlemusic : null,
-            deletemessage: ""
+            deletemessage: "",
+            addmessage: "",
+            updatemessage: ""
 
         }
     },
@@ -60,7 +63,33 @@
             catch(ex){
                 alert(ex.message)
             }
+        },
+        async AddMusic(){
+           
+            try{
+                respond = await axios.post(baseUrl, this.Music)
+                 this.addmessage = "respond " + respond.status + " " + respond.statusText
+                this.getMusics()
+            }
+            catch(ex){
+                alert(ex.message)
+
+            }
+
+        },async updateMusic(){
+            const url = baseUrl + "/" + this.updateData.id
+            try{
+                respond = await axios.put(url, this.updateData)
+                 this.updatemessage = "respond " + respond.status + " " + respond.statusText
+                this.getMusics()
+            }
+            catch(ex){
+                alert(ex.message)
+
+            }
+
         }
+
         
 
     } 

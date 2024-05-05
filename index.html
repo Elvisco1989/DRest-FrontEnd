@@ -3,6 +3,7 @@
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>DRMusic</title>
@@ -35,6 +36,23 @@
         <input v-model.number="deleteId" placeholder="id" type="number"/>
         <button v-on:click="deleteMusic(deleteId)" class="btn btn-warning">Delete</button>
         {{deletemessage}}
+        <h2>Add(POST)</h2>
+        <input v-model="Music.Id" placeholder="Id" type="text"/>
+        <input v-model="Music.title" placeholder="title" type="text"/>
+        <input v-model="Music.artist" placeholder="artist" type="text"/>
+        <input v-model="Music.publicationYear" placeholder="publicationYear" type="number"/>
+        <input v-model="Music.duration" placeholder="duration" type="number"/>
+        <button v-on:click="AddMusic()" class="btn btn-success">Add</button>
+        <div>{{ addmessage}}</div> 
+        
+        <h2>Update (PUT)</h2>
+        <input v-model.number="updateData.id" placeholder="id" type="number" />
+        <input v-model="updateData.title" placeholder="model" type="text" />
+        <input v-model="updateData.artist" placeholder="vendor" type="text" />
+        <input v-model.number="updateData.publicationYear" placeholder="publicationYear" type="number" />
+        <input v-model.number="updateData.duration" placeholder="duration" type="number" />
+        <button v-on:click="updateMusic()" class="btn btn-success">Update</button>
+        <div>{{updatemessage}}</div>
 
     </div>
     <script src="index.js"></script>
